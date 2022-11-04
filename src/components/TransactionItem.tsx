@@ -24,7 +24,6 @@ const TransactionItem = ({ data, onDelete }: TransactionItemProps) => {
 
   const handleDelete = () => {
     if (ref.current) {
-      console.log(ref.current.clientHeight);
       ref.current.style.height = `${ref.current.clientHeight}px`;
       setTimeout(() => {
         setClassName("IsDeleting");

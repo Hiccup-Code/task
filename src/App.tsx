@@ -58,14 +58,6 @@ function App() {
         filteredTransactions.length > 0 &&
         transactions.length < filteredTransactions.length
       ) {
-        console.log(
-          "get more",
-          transactions.length,
-          filteredTransactions.slice(
-            transactions.length,
-            transactions.length + pageSize
-          ).length
-        );
         setTransactions([
           ...transactions,
           ...filteredTransactions.slice(
@@ -86,8 +78,6 @@ function App() {
     setAllTransactions(allTransactions.filter((t) => t.id !== id));
     setTransactions(transactions.filter((t) => t.id !== id));
   };
-
-  console.log("transactions", transactions.length);
 
   return (
     <Box ref={ref} sx={{ height: "100vh", overflow: "auto" }}>
