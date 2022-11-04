@@ -2,6 +2,7 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { SnackbarProvider } from "notistack";
 import App from "./App";
 import "./index.css";
 
@@ -21,8 +22,16 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
+        <SnackbarProvider
+          maxSnack={4}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+        >
+          <CssBaseline />
+          <App />
+        </SnackbarProvider>
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>

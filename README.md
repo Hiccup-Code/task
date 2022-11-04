@@ -1,3 +1,8 @@
+## How to run app
+
+- npm instal
+- npm run dev
+
 ## Introduction
 
 Application should contain list of bank transactions, based on design structure from _design.png_ file and contain following functionalities:
@@ -6,11 +11,11 @@ Application should contain list of bank transactions, based on design structure 
 2.  Pagination (infinite-scroll or traditional, 20 items per page)
 3.  Filtering by `beneficiary` field
 4.  Form for adding new transaction to the list with basic non-empty fields validation. Add input fields for:
-    -   amount (must be positive)
-    -   account number (not empty, numbers)
-    -   address
-    -   description
-    -   date and id should be generated when submiting form
+    - amount (must be positive)
+    - account number (not empty, numbers)
+    - address
+    - description
+    - date and id should be generated when submiting form
 5.  Simple communicate when success/error after form submission.
 6.  Removing transaction from the list (please add animation for that)
 

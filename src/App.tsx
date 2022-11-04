@@ -12,6 +12,7 @@ import { NewTransaction, Search, TransactionList } from "./components";
 import { sum } from "./helper";
 import { ITransaction } from "./interfaces";
 import { useTransactionsQuery } from "./queries";
+import { useSnackbar } from "notistack";
 
 function App() {
   const [searchTerm, setSearchTerm] = React.useState("");
@@ -22,6 +23,7 @@ function App() {
   const theme = useTheme();
   const mobileMode = useMediaQuery(theme.breakpoints.down("md"));
   const { data } = useTransactionsQuery();
+  const { enqueueSnackbar } = useSnackbar();
   const ref = React.useRef<HTMLElement>(null);
   const pageSize = 10;
   const balance = sum(allTransactions?.map((t) => t.amount) || []);
@@ -62,6 +64,7 @@ function App() {
 
   const handleAdd = (value: ITransaction) => {
     setAllTransactions([...allTransactions, value]);
+    enqueueSnackbar("Added successfully!", { variant: "success" });
   };
 
   const handleDelete = (id: string) => {
